@@ -13,12 +13,12 @@ def get_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def get_level(line) -> float:
+def get_level(line: str) -> float:
     _, level = line.split(',')
     return float(level)
 
 
-def get_inflation(from_year, to_year, dollar):
+def get_inflation(from_year: str, to_year: str, dollar: int):
     with open('CPIAUCNS.csv') as fh:
         for line in fh.readlines():
             if line.startswith(f'{from_year}'):
