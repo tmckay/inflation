@@ -29,7 +29,7 @@ def get_inflation(from_year: str, to_year: str, dollar: int):
     inflation = (to_level - from_level) / from_level
     to_dollar = dollar * (1 + inflation) 
     inflation = inflation * 100
-    print(f'Inflation has grown {inflation:.2f}% '
+    print(f'The value of a dollar has changed {inflation:.2f}% '
           f'from {from_year} to {to_year}')
     print(f'${dollar:,.2f} in {from_year} is ${to_dollar:,.2f} in {to_year}')
 
