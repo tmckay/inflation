@@ -1,3 +1,4 @@
+#!/usr/local/bin/python
 """
 Calculates inflation between two years
 """
@@ -28,10 +29,7 @@ def get_inflation(from_year: str, to_year: str, dollar: int):
 
     inflation = (to_level - from_level) / from_level
 
-    if inflation < 1:
-        to_dollar = dollar * (1 + inflation)
-    else:
-        to_dollar = dollar * inflation
+    to_dollar = dollar * (1 + inflation)
 
     inflation = inflation * 100
     print(f'The value of a dollar has changed {inflation:.2f}% '
