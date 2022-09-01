@@ -20,12 +20,19 @@ def get_level(line: str) -> float:
 
 
 def get_inflation(from_year: str, to_year: str, dollar: int):
+    from_level = to_level = None
     with open('CPIAUCNS.csv') as fh:
         for line in fh.readlines():
             if line.startswith(f'{from_year}'):
                 from_level = get_level(line)
             if line.startswith(f'{to_year}'):
                 to_level = get_level(line)
+
+    if not from_level:
+        exit(f'{from_year} is not available in data')
+
+    if not to_level:
+        exit(f'{to_year} is not available in data')
 
     inflation = (to_level - from_level) / from_level
 
